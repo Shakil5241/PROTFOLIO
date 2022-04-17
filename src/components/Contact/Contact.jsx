@@ -3,7 +3,14 @@ import "./Contact.css"
 import Phone from "../../img/phone.png"
 import Email from "../../img/email.png"
 import Address from "../../img/address.png"
+import { ThemeContext } from '../../Context'
+import { useContext } from "react"
+
+
 const Contact = () => {
+    const theme = useContext(ThemeContext);
+  const  darkMode =theme.state.darkMode;
+    
   return (
     <div className="c">
        <div className="c-bg"></div>
@@ -33,6 +40,14 @@ const Contact = () => {
             <b>What’s your story?</b> Get in touch. Always available for
             freelancing if the right project comes along. me.
           </p>
+          <form >
+              <input style={{backgroundColor: darkMode && "#333"}} type="text" placeholder="Name" name="user_name"/>
+              <input style={{backgroundColor: darkMode && "#333"}} type="text" placeholder="Subject" name="user_subject"/>
+              <input style={{backgroundColor: darkMode && "#333"}} type="text" placeholder="Email" name="user_email"/>
+              <textarea style={{backgroundColor: darkMode && "#333"}} rows="5" placeholder="Message" name="message"/>
+              <button>Submit</button>
+          </form>
+          
            </div>
        </div>
         </div>
